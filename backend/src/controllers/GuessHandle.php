@@ -44,6 +44,7 @@ class GuessHandle
         }
     }
 
-    public function evaluateGuess(): array {
+    // public function evaluateGuess(): array {
 
-    }
+    // }
+}
