@@ -47,4 +47,3 @@ class GuessHandle
     public function evaluateGuess(): array {
 
     }
-}
