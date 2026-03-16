@@ -19,8 +19,8 @@ class GuessHandle
         $lastFifteenGuesses = $this->genRepo->simpleQuery("SELECT * FROM WH_Guesses ORDER BY `date` DESC LIMIT 15;");
         $recentUnitIds = array_column($lastFifteenGuesses, 'units_id');
 
-        $firstUnitId = $this->genRepo->simpleQuery("SELECT id FROM WH_Guesses ORDER BY id ASC LIMIT 1;");
-        $lastUnitId = $this->genRepo->simpleQuery("SELECT id FROM WH_Guesses ORDER BY id DESC LIMIT 1;");
+        $firstUnitId = $this->genRepo->simpleQuery("SELECT id FROM WH_Units ORDER BY id ASC LIMIT 1;");
+        $lastUnitId = $this->genRepo->simpleQuery("SELECT id FROM WH_Units ORDER BY id DESC LIMIT 1;");
 
         $firstUnitId = (int)$firstUnitId[0];
         $lastUnitId = (int)$lastUnitId[0];
@@ -44,7 +44,14 @@ class GuessHandle
         }
     }
 
-    // public function evaluateGuess(): array {
+    public function evaluateGuess(string $usersGuess): array {
+        $unitByName = $this->genRepo->paramsQuery("SELECT * FROM WH_Units WHERE name = :search", [":search" => $usersGuess]);
+        $todaysGuess = $this->genRepo->paramsQuery("SELECT * FROM WH_Guesses WHERE date = :search", [":search" => date("Y-m-d")]);
 
-    // }
+        // foreach ($unitByName as $unit => $unitData) {
+        //     if (condition) {
+        //         # code...
+        //     }
+        // }
+    }
 }

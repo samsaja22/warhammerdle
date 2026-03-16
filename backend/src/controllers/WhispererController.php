@@ -23,6 +23,10 @@ class WhispererController
             $error[] = "Your request cannot have spacial characters in it.";
         }
 
+        if (!empty($error)) {
+            return $error;
+        }
+
         $sql = "SELECT name FROM WH_Units WHERE name LIKE :search";
         $params = [
             ':search' => $userInput.'%'
