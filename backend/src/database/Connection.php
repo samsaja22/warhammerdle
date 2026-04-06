@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Warhammedle\Database;
+namespace Warhammerdle\Database;
 
 use PDO;
 use PDOException;

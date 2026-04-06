@@ -1,10 +1,10 @@
 {
-    "name": "warhammedle/backend",
+    "name": "warhammerdle/backend",
     "description": "pico",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Warhammedle\\": "src/"
+            "Warhammerdle\\": "src/"
         }
     },
     "require": {
